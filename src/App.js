@@ -12,6 +12,7 @@ import Chat from './pages/Chat';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import { auth } from './services/firebase';
+
 function App() {
   return (
     <div className="App">
