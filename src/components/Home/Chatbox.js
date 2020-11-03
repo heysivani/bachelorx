@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 
-export default function Chatbox({ message }) {
+export default function Chatbox() {
     const [chatList, setChatList] = useState([]);
 
     const updateChatList = (chats) => {
