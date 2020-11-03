@@ -26,7 +26,7 @@ function AppRouter() {
     );
 }
 
-const NoMatch = ({ location }) => 
-    "No route match for {location.pathname}";
+const NoMatch = () => 
+    "No space baes here :(";
 
 ReactDOM.render(<AppRouter />, document.getElementById("root"));
