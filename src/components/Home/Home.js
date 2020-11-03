@@ -38,13 +38,13 @@ export default function Home({ user }) {
             <h1>Space Bae</h1>
             { user &&
                 <div className="allow-entry">
+                    <Chatbox message={ message }/>
                     <form className="send-message"
                         onSubmit={ submitMessage }>
                         <input type="text" id="message" value={ message }
                         onChange={ updateMessage } 
                         placeholder="Type a message" />
                     </form>
-                    <Chatbox />
                 </div>
             }
             { !user &&

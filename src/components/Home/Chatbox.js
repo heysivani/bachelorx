@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 
-export default function Chatbox() {
+export default function Chatbox({ message }) {
     const [chatList, setChatList] = useState([]);
 
     const updateChatList = (chats) => {
@@ -9,18 +9,15 @@ export default function Chatbox() {
     }
 
     useEffect(() => {
-        const chatRef = db.ref("chats");
-
-        (async function getChatData() {
+       (async function getChatData() {
+            const chatRef = db.ref("chats");
             const snapshot = await chatRef.once("value");
-
-            console.log("snap", snapshot);
-
+    
             // retrieves all our chats
             const allChats = await snapshot.val();
-
+    
             console.log("allChats", allChats);
-
+    
             // array to push all our chat objects to
             let chatsArray = [];
             for(let chat in allChats) {
@@ -33,11 +30,12 @@ export default function Chatbox() {
                     timestamp: allChats[chat].timestamp
                 })
             }
-
+    
             updateChatList(chatsArray);
             console.log("chatbox mounted ayy");
         })();
-    }, [])
+        
+    }, [message])
 
     return (
         <div className="chatbox">
