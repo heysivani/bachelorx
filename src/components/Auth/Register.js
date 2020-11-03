@@ -36,6 +36,8 @@ export default function Register() {
             await auth().createUserWithEmailAndPassword(email, password);
             const user = await auth().currentUser;
             await user.updateProfile({ displayName: username });
+            
+            // redirect users to home (since they are auto logged in upon registration)
             history.push("/");
 
         } catch(currentError) {
@@ -55,7 +57,7 @@ export default function Register() {
                 <label htmlFor="email">Email</label>
                 <input type="text" id="email" value={ email } 
                     onChange={ updateEmail } />
-                  <label htmlFor="username">Username</label>
+                  <label htmlFor="password">Password</label>
                 <input type="text" id="password" value={ password } 
                     onChange={ updatePassword } />
                 <button className="register-button">Register!</button>
