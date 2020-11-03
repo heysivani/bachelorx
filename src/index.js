@@ -14,6 +14,7 @@ function App() {
         // check if a user is logged in
         auth().onAuthStateChanged(user => {
             if(user) {
+                console.log("logging u in");
                 // if a user is currently logged in, store them in state
                 setUser(user);
             }
@@ -21,8 +22,14 @@ function App() {
     }, [])
 
     const logoutUser = async () => {
-        await auth().signOut();
-        window.location = "/";
+        console.log("logging u out...");
+        try {
+            await auth().signOut();
+            window.location = "/";
+        } catch(error) {
+            console.log("can't log u out if you're not logged in");
+            console.error(error);
+        }
     }
 
     return(

@@ -25,7 +25,7 @@ export default function Login() {
 
     const submitForm = async (event) => {
         event.preventDefault();
-        console.log("logging in...");
+        console.log("submit login...");
 
         try {
             await auth().signInWithEmailAndPassword(email, password);
