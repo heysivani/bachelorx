@@ -9,15 +9,11 @@ export default function Chatbox({ message }) {
     }
 
     useEffect(() => {
-       (async function getChatData() {
-            const chatRef = db.ref("chats");
-            const snapshot = await chatRef.once("value");
-    
+        const chatRef = db.ref("chats");
+        chatRef.on("value", snapshot => {
             // retrieves all our chats
-            const allChats = await snapshot.val();
-    
+            const allChats = snapshot.val();
             console.log("allChats", allChats);
-    
             // array to push all our chat objects to
             let chatsArray = [];
             for(let chat in allChats) {
@@ -30,12 +26,10 @@ export default function Chatbox({ message }) {
                     timestamp: allChats[chat].timestamp
                 })
             }
-    
             updateChatList(chatsArray);
             console.log("chatbox mounted ayy");
-        })();
-        
-    }, [message])
+        });
+     }, [])
 
     return (
         <div className="chatbox">
