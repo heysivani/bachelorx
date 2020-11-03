@@ -37,15 +37,21 @@ function App() {
             <div className="app">
                 <nav className="main-nav">
                     { !user && 
-                        <div>
-                            <Link to="/login">Login</Link>
+                        <p>
+                            <Link to="/">Home</Link>
+                                &nbsp;
+                            <Link to="/login">Login </Link>
+                                &nbsp;
                             <Link to="/register">Register</Link>
-                        </div>
+                        </p>
                     }
                     { user && 
-                        <a href = "#!" onClick={ logoutUser }>Logout</a>
+                        <p>
+                            <Link to="/">Home</Link>
+                                &nbsp;
+                            <a href = "#!" onClick={ logoutUser }>Logout</a>
+                        </p>
                     }
-                    {/* <Link to="/">Home</Link> */}
                 </nav>
                 <Switch>
                     <Route path="/" exact render={ () => <Home user={ user } /> } />

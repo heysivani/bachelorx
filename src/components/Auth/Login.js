@@ -46,7 +46,7 @@ export default function Login() {
                 <label htmlFor="email">Email</label>
                 <input type="text" id="email" value={ email } 
                     onChange={ updateEmail } />
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">Password (minimum 6 characters)</label>
                 <input type="text" id="password" value={ password } 
                     onChange={ updatePassword } />
                 <button className="login-button">Login!</button>
