@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
-import { auth, provider } from "./firebase";
+import { auth } from "./firebase";
 import "./index.css";
 import Home from "./components/Home/Home";
 import Login from "./components/Auth/Login";
 import Register from "./components/Auth/Register";
+import Profile from "./components/Home/Profile";
 
 function App() {
     const [user, setUser] = useState(null);
@@ -50,7 +51,7 @@ function App() {
                             <Link to="/">Home</Link>
                                 &nbsp;
                             <a href = "#!" onClick={ logoutUser }>Logout</a>
-                            <img className="header-avatar" src={ user.photoURL } />
+                            <img className="header-avatar" src={ user.photoURL } alt="user's avatar" />
                             <span className="header-display-name">&nbsp;{ user.displayName }</span>
                         </p>
                     }
@@ -59,6 +60,7 @@ function App() {
                     <Route path="/" exact render={ () => <Home user={ user } /> } />
                     <Route path="/login" exact component= { Login } />
                     <Route path="/register" exact component= { Register } />
+                    <Route path="/profile" exact render={() => <Profile user={ user } /> } />
                     <Route component= { NoMatch } />
                 </Switch>
             </div>
