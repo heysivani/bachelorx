@@ -43,14 +43,14 @@ export default function Login() {
             <h1>Login</h1>
             {error && <p className="error">{error.message}</p>}
             <form onSubmit={ submitForm }>
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email&nbsp;</label>
                 <input type="text" id="email" value={ email } 
                     onChange={ updateEmail } />
-                  <label htmlFor="password">Password (minimum 6 characters)</label>
+                  <label htmlFor="password">&nbsp;Password&nbsp;</label>
                 <input type="text" id="password" value={ password } 
                     onChange={ updatePassword } />
                 <button className="login-button">Login!</button>
-                <p>Don't have an account yet? 
+                <p>Don't have an account yet?&nbsp;
                     <Link className="register-button" to="/register">Go register</Link>
                 </p>
             </form>

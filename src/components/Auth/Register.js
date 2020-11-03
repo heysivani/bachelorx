@@ -51,17 +51,17 @@ export default function Register() {
             <h1>Register</h1>
             {error && <p className="error">{error.message}</p>}
             <form onSubmit={ submitForm }>
-                <label htmlFor="username">Username</label>
+                <label htmlFor="username">Username&nbsp;</label>
                 <input type="text" id="username" value={ username } 
                     onChange={ updateUsername } />
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">&nbsp;Email&nbsp;</label>
                 <input type="text" id="email" value={ email } 
                     onChange={ updateEmail } />
-                  <label htmlFor="password">Password</label>
+                  <label htmlFor="password">&nbsp;Password (minimum 6 characters)&nbsp;</label>
                 <input type="text" id="password" value={ password } 
                     onChange={ updatePassword } />
                 <button className="register-button">Register!</button>
-                <p>Already have an account? 
+                <p>Already have an account?&nbsp;
                     <Link className="login-button" to="/login">Login!</Link>
                 </p>
             </form>
