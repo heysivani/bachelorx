@@ -22,7 +22,8 @@ export default function Home({ user }) {
             const chat = {
                 message: message,
                 user: user.displayName,
-                timestamp: new Date().getTime()
+                timestamp: new Date().getTime(),
+                avatar: user.photoURL
             }
 
             // push this chat to the database~

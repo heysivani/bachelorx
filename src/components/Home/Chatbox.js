@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
+import "./Chatbox.css"
 
 export default function Chatbox() {
     const [chatList, setChatList] = useState([]);
@@ -23,7 +24,8 @@ export default function Chatbox() {
                     id: chat,
                     message: allChats[chat].message,
                     user: allChats[chat].user,
-                    timestamp: allChats[chat].timestamp
+                    timestamp: allChats[chat].timestamp,
+                    avatar: allChats[chat].avatar
                 })
             }
             updateChatList(chatsArray);
@@ -31,23 +33,24 @@ export default function Chatbox() {
         });
      }, [])
 
-    return (
+     return (
         <div className="chatbox">
-            <ul className="chat-list">
+            <div className="chat-list">
                 {chatList.map(chat => {
                     const postDate = new Date(chat.timestamp);
                     return (
-                        <li key={ chat.id }>
+                        <div key={ chat.id }>
+                            <img className="chat-avatar" src={ chat.avatar } alt="user's avatar"/>
                             <em>
                                 { postDate.getDate()
                                     + "/" + (postDate.getMonth() + 1)}
                             </em>
                             <strong>{ chat.user }:</strong>
                             { chat.message }
-                        </li>
+                        </div>
                     );
                 })}
-            </ul>
+            </div>
         </div>
     );
 }

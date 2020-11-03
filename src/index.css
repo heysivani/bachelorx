@@ -1,0 +1,13 @@
+.header-display-name {
+    float: right;
+}
+
+.header-avatar {
+    float: right;
+    width: 100px;
+    overflow: auto;
+}
+
+.clearfix {
+    overflow: auto;
+}
