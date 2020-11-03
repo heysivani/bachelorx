@@ -9,29 +9,34 @@ import {
 
 import Home from './pages/Home';
 import Chat from './pages/Chat';
-import Signup from './pages/Signup';
+import Signup from './pages/Signup.js';
 import Login from './pages/Login';
 import { auth } from './services/firebase';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      authenticated: false,
+      loading: true,
+    };
+  }
+
+  componentDidMount() {
+    auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          authenticated: true,
+          loading: false,
+        });
+      } else {
+        this.setState({
+          authenticated: false,
+          loading: false,
+        });
+      }
+    })
+  }
 }
 
 export default App;
