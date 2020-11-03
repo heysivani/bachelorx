@@ -37,6 +37,7 @@ export default function Register() {
             const user = await auth().currentUser;
             await user.updateProfile({ displayName: username });
             
+            console.log("registered and logged in!");
             // redirect users to home (since they are auto logged in upon registration)
             history.push("/");
 

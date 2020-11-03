@@ -14,7 +14,7 @@ function App() {
         // check if a user is logged in
         auth().onAuthStateChanged(user => {
             if(user) {
-                console.log("logging u in");
+                console.log("set current user");
                 // if a user is currently logged in, store them in state
                 setUser(user);
             }
@@ -36,13 +36,19 @@ function App() {
         <Router>
             <div className="app">
                 <nav className="main-nav">
-                    <Link to="/">Home</Link>
-                    <Link to="/login">Login</Link>
-                    <Link to="/register">Register</Link>
-                    <a href = "#!" onClick={ logoutUser }>Logout</a>
+                    { !user && 
+                        <div>
+                            <Link to="/login">Login</Link>
+                            <Link to="/register">Register</Link>
+                        </div>
+                    }
+                    { user && 
+                        <a href = "#!" onClick={ logoutUser }>Logout</a>
+                    }
+                    {/* <Link to="/">Home</Link> */}
                 </nav>
                 <Switch>
-                    <Route path="/" exact component= { Home } />
+                    <Route path="/" exact render={ () => <Home user={ user } /> } />
                     <Route path="/login" exact component= { Login } />
                     <Route path="/register" exact component= { Register } />
                     <Route component= { NoMatch } />

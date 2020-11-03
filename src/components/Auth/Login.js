@@ -29,7 +29,7 @@ export default function Login() {
 
         try {
             await auth().signInWithEmailAndPassword(email, password);
-
+            console.log("logged in!");
             // redirect users to home once they're logged in
             history.push("/");
 
