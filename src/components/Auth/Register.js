@@ -44,7 +44,6 @@ export default function Register() {
         } catch(currentError) {
             updateError(currentError);            
         }
-
     }
     
     return (
