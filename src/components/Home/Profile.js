@@ -86,10 +86,13 @@ export default function Profile({ user }) {
         });
         console.log("registered photoURL", user.photoURL, " at index ", avatarIndex);
 
-        // set title data
+        // set title, display name, and heart string in db
         console.log("picking title", titles[avatarIndex]);
         db.ref("users/" + user.uid).set({
-            title: titles[avatarIndex] 
+            title: titles[avatarIndex],
+            displayName: user.displayName,
+            hearts: "",
+            avatar: user.photoURL
         });
 
         // loop to next avatar index

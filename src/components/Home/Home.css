@@ -1,23 +1,39 @@
 .header {
- position: sticky;
- top: 0;
+ /* position: sticky;
+ top: 0; */
+ float: right;
+}
+.userlist {
+    padding-left: 100px;
+    list-style: none;
+    -ms-flex-line-pack: start;
+}
+
+.send-message {
+    position:relative;
+    padding-top: 300px;
+}
+
+#message {
+    position: relative;
+    float: left;
 }
 
 .header-display-name {
     float: right;
-    font-size: xx-large;
+    font-size: medium;
     font-weight: bolder;
 }
 
 .header-title {
     float: right;
-    font-size: xx-large;
+    font-size: medium;
     font-style: italic;
 }
 
 .header-avatar {
     float: right;
-    width: 200px;
+    width: 20px;
 }
 
 h1 {

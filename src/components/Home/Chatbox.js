@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import "./Chatbox.css"
 
-export default function Chatbox() {
+export default function Chatbox( { bachelorX, user }) {
     const [chatList, setChatList] = useState([]);
 
     const updateChatList = (chats) => {
@@ -33,6 +33,25 @@ export default function Chatbox() {
         });
      }, [])
 
+    //  const heart = async (event) => {
+    //      // check if bachelorX
+    //      if(bachelorX) {
+    //         // getting user hearts
+    //         let prevHearts;
+    //         const usersRef = await db.ref("users");
+    //         console.log("USERS ref",usersRef);
+    //         usersRef.on("value", async (snapshot) => {
+    //             const allUsers = await snapshot.val();
+    //             console.log("all users", allUsers);
+             
+    //         console.log("e",event.target.name);
+    //         console.log("um", allUsers.child(event.target.name));
+    //         console.log(allUsers[event.target.name].title);
+    //         console.log("hearts", prevHearts);
+    //         });
+    //     }
+    // }
+
      return (
         <div className="chatbox">
             <div className="chat-list">
@@ -40,7 +59,10 @@ export default function Chatbox() {
                     const postDate = new Date(chat.timestamp);
                     return (
                         <div key={ chat.id }>
-                            <img className="chat-avatar" src={ chat.avatar } alt="user's avatar"/>
+                            <img className="chat-avatar" src={ chat.avatar } alt="user's avatar"
+                                name={ chat.user }
+                                // onClick={ heart }
+                            />
                             <em>
                                 { postDate.getDate()
                                     + "/" + (postDate.getMonth() + 1)}

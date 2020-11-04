@@ -3,5 +3,8 @@
 }
 
 .chat-list {
-    font-size: x-large;
+    float: left;
+    font-size: medium;
+    word-wrap: normal;
+    position: relative;
 }
