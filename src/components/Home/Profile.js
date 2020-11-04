@@ -75,14 +75,9 @@ export default function Profile({ user }) {
 
     const fetchData = async () => {
         const avatarRef = await db.ref("avatars")
-        // const indexRef = await avatarRef.child("index");
         const avatarSnapshot = await avatarRef.once("value"); 
-        console.log("av snap", avatarSnapshot);  
         const snapshotObj = await avatarSnapshot.val();
-        console.log("snap obj", snapshotObj);
         const snapshotIndex = await snapshotObj.index;
-        console.log("about to update snap index", snapshotIndex);
-
         updateAvatarIndex(snapshotIndex);
     }
 

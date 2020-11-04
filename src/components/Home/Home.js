@@ -39,6 +39,8 @@ export default function Home({ user }) {
             <h1>Space Bae</h1>
             { user &&
                 <div className="allow-entry">
+                    <img className="header-avatar" src={ user.photoURL } alt="user's avatar" />
+                    <span className="header-display-name">&nbsp;{ user.displayName }</span>
                     <Chatbox message={ message }/>
                     <form className="send-message"
                         onSubmit={ submitMessage }>

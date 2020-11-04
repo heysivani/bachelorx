@@ -51,8 +51,6 @@ function App() {
                             <Link to="/">Home</Link>
                                 &nbsp;
                             <a href = "#!" onClick={ logoutUser }>Logout</a>
-                            <img className="header-avatar" src={ user.photoURL } alt="user's avatar" />
-                            <span className="header-display-name">&nbsp;{ user.displayName }</span>
                         </p>
                     }
                 </nav>

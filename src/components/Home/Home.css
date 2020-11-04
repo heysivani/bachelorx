@@ -1,0 +1,19 @@
+.header-display-name {
+    float: right;
+    position: sticky;
+    top: 0;
+    font-size: xx-large;
+}
+
+.header-avatar {
+    float: right;
+    position: relative;
+    width: 200px;
+    overflow: auto;
+    position: sticky;
+    top: 0;
+}
+
+h1 {
+    font-size: xx-large;
+}
