@@ -56,9 +56,12 @@ export default function Home({ user }) {
             <h1>Space Bae</h1>
             { user &&
                 <div className="allow-entry">
-                    <img className="header-avatar" src={ user.photoURL } alt="user's avatar" />
-                    <p className="header-display-name">&nbsp;{ user.displayName }</p>
-                    <p className="header-title">&nbsp;{ userTitle }</p>                    
+                    <div className="header">
+                        <img className="header-avatar" src={ user.photoURL } alt="user's avatar" />
+                        <p className="header-display-name">&nbsp;{ user.displayName }</p>
+                        <p className="header-title">&nbsp;{ userTitle }</p>       
+                    </div>
+                        
                     <Chatbox message={ message }/>
                     <form className="send-message"
                         onSubmit={ submitMessage }>
