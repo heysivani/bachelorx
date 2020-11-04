@@ -7,6 +7,7 @@ import Chatbox from "./Chatbox";
 export default function Home({ user }) {
     const [message, setMessage] = useState("");
     const [userTitle, setUserTitle] = useState("");
+    const [bachelorX, setBachelorX] = useState(false);
 
     useEffect(() => {
         if(user) {
@@ -19,10 +20,21 @@ export default function Home({ user }) {
                 console.log("all users", allUsers);
             title = allUsers[user.uid].title;
             console.log("title", title);
+            
+            // check if bachelor
+            if(title === "bachelorX") {
+                toggleBachelorX();
+                console.log("toggling bachelorx!");
+            }
             setUserTitle(title);
             })
         }
     }, [user]);
+
+    const toggleBachelorX = () => {
+        setBachelorX(true);
+        console.log("bachelorX=", bachelorX);
+    }
 
     const updateMessage = (event) => {
         setMessage(event.target.value);
@@ -56,6 +68,11 @@ export default function Home({ user }) {
             <h1>Space Bae</h1>
             { user &&
                 <div className="allow-entry">
+                    { bachelorX &&
+                        <div className="bachelorx-view">
+                            BachelorX view only!
+                        </div>
+                    }
                     <div className="header">
                         <img className="header-avatar" src={ user.photoURL } alt="user's avatar" />
                         <p className="header-display-name">&nbsp;{ user.displayName }</p>
