@@ -20,11 +20,10 @@ import av13 from "../../images/av13.png";
 import av14 from "../../images/av14.png";
 
 export default function Profile({ user }) {
-    const [roleIndex, setRoleIndex] = useState();
     const [avatarIndex, setAvatarIndex] = useState();
     const history = useHistory();
 
-    const [roles, setRoles] = useState([
+    const [titles, setTitles] = useState([
         "dreamy dark matter",
         "comet casanova",
         "pretty pulsar",
@@ -51,6 +50,15 @@ export default function Profile({ user }) {
         fetchData();
     }, [])
 
+    const fetchData = async () => {
+        // fetch avatars data
+        const avatarRef = await db.ref("avatars")
+        const avatarSnapshot = await avatarRef.once("value"); 
+        const snapshotObj = await avatarSnapshot.val();
+        const snapshotIndex = await snapshotObj.index;
+        updateAvatarIndex(snapshotIndex);
+    }
+
     const loopAvatarIndex = (currentIndex) => {
         // get current avatar index
         let nextIndex;
@@ -70,28 +78,19 @@ export default function Profile({ user }) {
     
     const updateAvatarIndex = async (index) => {
         setAvatarIndex(index);
-        console.log("current avatar index", avatarIndex);
-    }
-
-    const fetchData = async () => {
-        const avatarRef = await db.ref("avatars")
-        const avatarSnapshot = await avatarRef.once("value"); 
-        const snapshotObj = await avatarSnapshot.val();
-        const snapshotIndex = await snapshotObj.index;
-        updateAvatarIndex(snapshotIndex);
     }
 
     const updateUserProfile = async () => {
         await user.updateProfile({ 
             photoURL: avatars[avatarIndex]
         });
-
         console.log("registered photoURL", user.photoURL, " at index ", avatarIndex);
 
-        // add user and custom properties to db
-        // db.ref("users/" + user.uid).set({
-        //     role: "bachelorX",
-        // })
+        // set title data
+        console.log("picking title", titles[avatarIndex]);
+        db.ref("users/" + user.uid).set({
+            title: titles[avatarIndex] 
+        });
 
         // loop to next avatar index
         loopAvatarIndex(avatarIndex);

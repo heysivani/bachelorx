@@ -54,7 +54,7 @@ export default function Register() {
             <h1>Register</h1>
             {error && <p className="error">{error.message}</p>}
             <form onSubmit={ submitForm }>
-                <label htmlFor="username">Username&nbsp;</label>
+                <label htmlFor="username">Display name&nbsp;</label>
                 <input type="text" id="username" value={ username } 
                     onChange={ updateUsername } />
                 <label htmlFor="email">&nbsp;Email&nbsp;</label>

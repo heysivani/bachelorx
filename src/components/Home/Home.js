@@ -23,7 +23,7 @@ export default function Home({ user }) {
                 message: message,
                 user: user.displayName,
                 timestamp: new Date().getTime(),
-                avatar: user.photoURL
+                avatar: user.photoURL,
             }
 
             // push this chat to the database~
