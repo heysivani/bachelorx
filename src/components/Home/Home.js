@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { db } from "../../firebase";
 import "./Home.css";
@@ -6,6 +6,23 @@ import Chatbox from "./Chatbox";
 
 export default function Home({ user }) {
     const [message, setMessage] = useState("");
+    const [userTitle, setUserTitle] = useState("");
+
+    useEffect(() => {
+        if(user) {
+            // getting user title
+            let title;
+            const usersRef = db.ref("users");
+            console.log("USER",user.uid);
+            usersRef.on("value", snapshot => {
+                const allUsers = snapshot.val();
+                console.log("all users", allUsers);
+            title = allUsers[user.uid].title;
+            console.log("title", title);
+            setUserTitle(title);
+            })
+        }
+    }, [user]);
 
     const updateMessage = (event) => {
         setMessage(event.target.value);
@@ -40,7 +57,8 @@ export default function Home({ user }) {
             { user &&
                 <div className="allow-entry">
                     <img className="header-avatar" src={ user.photoURL } alt="user's avatar" />
-                    <span className="header-display-name">&nbsp;{ user.displayName }</span>
+                    <p className="header-display-name">&nbsp;{ user.displayName }</p>
+                    <p className="header-title">&nbsp;{ userTitle }</p>                    
                     <Chatbox message={ message }/>
                     <form className="send-message"
                         onSubmit={ submitMessage }>
