@@ -1,31 +1,17 @@
 # space bae 👽💋
 
-Welcome to space bae! Currently, space bae is just a chatroom... with aliens and space puns. Future goal: multiplayer competitive dating sim set in space.
+*space bae* is a live chatroom experiment. terrestrials, extra or not, are all welcome 👽
 
-## Available Scripts
+# join the chat
 
-In the project directory, you can run:
+[https://space-bae.web.app/](https://space-bae.web.app/)
 
-### `yarn start`
+# tech stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+this humble web app is powered by react, javascript, firebase realtime database, and lots of space puns. deployed via firebase.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+# screenshots
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
+[Landing page](https://github.com/heysivani/spacebae/blob/staging/screenshots/landing.png)
+[Users](https://github.com/heysivani/spacebae/blob/staging/screenshots/users.png)
+[Chat](https://github.com/heysivani/spacebae/blob/staging/screenshots/chat.png)
