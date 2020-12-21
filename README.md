@@ -2,6 +2,8 @@
 
 *space bae* is a live chatroom experiment. terrestrials, extra or not, are all welcome 👽
 
+Created during my time as a student at Code Chrysalis 🦋
+
 # join the chat!
 
 [https://space-bae.web.app/](https://space-bae.web.app/)
@@ -19,5 +21,3 @@ i made this in 2 days. the css is unholy. maybe aliens hate neatly aligned thing
 ![Landing page](https://github.com/heysivani/spacebae/blob/staging/screenshots/landing.png)
 ![Users](https://github.com/heysivani/spacebae/blob/staging/screenshots/users.png)
 ![Chat](https://github.com/heysivani/spacebae/blob/staging/screenshots/chat.png)
-
-Created during my time as a student at Code Chrysalis 🦋
