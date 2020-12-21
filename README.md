@@ -10,6 +10,10 @@
 
 this humble web app is powered by react, javascript, firebase realtime database, and lots of space puns. deployed via firebase.
 
+# known issues
+
+i made this in 2 days. the css is unholy. maybe aliens hate neatly aligned things??
+
 # screenshots
 
 ![Landing page](https://github.com/heysivani/spacebae/blob/staging/screenshots/landing.png)
