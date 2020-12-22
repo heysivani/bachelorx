@@ -1,6 +1,6 @@
 # space bae 👽💋
 
-*space bae* is a live chatroom experiment. terrestrials, extra or not, are all welcome 👽
+*space bae* is a live chatroom experiment. all terrestrials, extra or not, are welcome 👽
 
 Created during my time as a student at Code Chrysalis 🦋
 
